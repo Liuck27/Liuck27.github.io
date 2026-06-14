@@ -1,18 +1,26 @@
 @import 'tailwindcss';
 
-/* Design tokens: dark base with a single light accent (sky). */
+/* Neural Vision design system: near-black canvas, neon-emerald accent,
+   Inter for prose and JetBrains Mono for technical labels and data. */
 @theme {
-  --color-base: #0a0a0a;
-  --color-surface: #121214;
-  --color-border: #232327;
-  --color-muted: #8a8a93;
-  --color-accent: #38bdf8;
-  --color-accent-soft: #7dd3fc;
+  /* Cool graphite tonal ramp: a near-black canvas with clearly lifted
+     surfaces, so cards and panels read distinctly against the page. */
+  --color-base: #070809;
+  --color-surface: #14161b;
+  --color-surface-2: #1e2128;
+  --color-surface-3: #282c35;
+  --color-border: #343842;
+  --color-border-accent: #1f5340;
+  --color-muted: #a9b0ba;
+  --color-text: #f1f3f5;
+  --color-accent: #00e38f;
+  --color-accent-soft: #4dffb0;
+  --color-accent-dim: #00b873;
 
   --font-sans:
     'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono:
-    ui-monospace, 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    'JetBrains Mono', ui-monospace, 'SF Mono', 'Fira Code', monospace;
 }
 
 html {
@@ -23,19 +31,67 @@ html {
 body {
   margin: 0;
   background-color: var(--color-base);
-  color: #e7e7ea;
+  color: var(--color-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Offset anchor targets so the sticky nav does not cover section headings. */
-section[id] {
-  scroll-margin-top: 5rem;
+::selection {
+  background-color: rgba(0, 227, 143, 0.25);
+  color: var(--color-accent-soft);
 }
 
-/* Subtle scroll reveal: elements fade and rise into place once, then settle.
-   Kept fast and respectful of reduced-motion preferences. */
+/* Offset anchor targets so the sticky nav does not cover section headings. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Architectural grid backdrop, evoking a CAD / blueprint canvas. */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Translucent layered surface with a soft blur, used for cards and nav.
+   Sits clearly above the base canvas with a defined edge. */
+.glass-panel {
+  background: rgba(30, 33, 40, 0.72);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+}
+
+/* Emerald glow on hover, replacing traditional drop shadows. */
+.glow-hover {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+.glow-hover:hover {
+  border-color: rgba(0, 227, 143, 0.35);
+  box-shadow: 0 0 24px rgba(0, 227, 143, 0.08);
+}
+
+/* Status indicator pulse. */
+.pulse-dot {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.25);
+  }
+}
+
+/* Subtle scroll reveal: fade and rise into place once, then settle. */
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -58,5 +114,8 @@ section[id] {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .pulse-dot {
+    animation: none;
   }
 }

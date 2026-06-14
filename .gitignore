@@ -31,3 +31,6 @@ Thumbs.db
 
 # TypeScript build info
 *.tsbuildinfo
+
+# Stitch design reference scratch (kept locally, not part of the site)
+.stitch_ref/

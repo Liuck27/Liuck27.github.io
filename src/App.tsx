@@ -1,24 +1,52 @@
+import { useEffect } from 'react'
 import { Nav } from './components/Nav.tsx'
 import { Hero } from './components/Hero.tsx'
 import { About } from './components/About.tsx'
 import { Skills } from './components/Skills.tsx'
-import { Projects } from './components/Projects.tsx'
+import { Experience } from './components/Experience.tsx'
+import { ProjectsPage } from './components/ProjectsPage.tsx'
 import { Background } from './components/Background.tsx'
 import { Contact } from './components/Contact.tsx'
 import { Footer } from './components/Footer.tsx'
+import { useHash, isProjectsRoute } from './router.ts'
 
 function App() {
+  const hash = useHash()
+  const onProjects = isProjectsRoute(hash)
+
+  // Sync scroll position with the route: jump to top on the Projects view,
+  // and resolve in-page anchors on the home view (including when arriving
+  // from the Projects view, where the target only exists after render).
+  useEffect(() => {
+    if (onProjects) {
+      window.scrollTo(0, 0)
+      return
+    }
+    const id = hash.replace(/^#\/?/, '')
+    if (id) {
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView()
+      })
+    }
+  }, [hash, onProjects])
+
   return (
     <>
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Background />
-        <Contact />
-      </main>
+      <Nav onProjects={onProjects} />
+      {onProjects ? (
+        <main>
+          <ProjectsPage />
+        </main>
+      ) : (
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Background />
+          <Contact />
+        </main>
+      )}
       <Footer />
     </>
   )
