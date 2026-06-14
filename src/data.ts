@@ -51,7 +51,7 @@ export const profile: SiteProfile = {
   role: 'Software Engineer at Leonardo Helicopters, Milan',
   tagline: 'I build software that holds up under pressure.',
   about:
-    "Software engineer at Leonardo Helicopters in Milan, building production-grade systems across AI pipelines, backend services, and developer tooling. At Leonardo I built a vision-LLM document-comparison pipeline, stood up the division's first CI/CD pipeline, and shipped a local agentic RAG system for requirements retrieval — all alongside developing and verifying embedded avionics software under DO-178C DAL A. That safety-critical background gives me a strong bias toward rigor and correctness, which I carry into everything I build. Outside of work I am drawn to quantitative finance and enjoy applying engineering thinking to markets.",
+    "Software engineer at Leonardo Helicopters in Milan, building production-grade systems across AI pipelines, backend services, and developer tooling. At Leonardo I built a vision-LLM document-comparison pipeline, stood up the division's first CI/CD pipeline, and shipped a local agentic RAG system for requirements retrieval, all alongside developing and verifying embedded avionics software under DO-178C DAL A. That safety-critical background gives me a strong bias toward rigor and correctness, which I carry into everything I build. Outside of work I am drawn to quantitative finance and enjoy applying engineering thinking to markets.",
   email: 'luca.secchieri@gmail.com',
   linkedin: 'https://www.linkedin.com/in/luca-secchieri',
   github: 'https://github.com/Liuck27',
@@ -67,33 +67,45 @@ export const navLinks: NavLink[] = [
 ]
 
 export const skills: SkillGroup[] = [
-  { category: 'Languages', items: ['Python', 'C', 'C++'] },
   {
-    category: 'AI',
+    category: 'Languages',
+    items: ['Python', 'C', 'C++', 'Data structures & algorithms'],
+  },
+  {
+    category: 'AI/ML',
     items: [
       'RAG',
       'LLM Agents',
       'Prompt Engineering and Evaluation',
       'Ollama',
       'MCP',
+      'PyTorch',
     ],
   },
-  { category: 'Backend & Web', items: ['FastAPI', 'REST'] },
-  { category: 'Databases', items: ['PostgreSQL', 'SQLite', 'ChromaDB'] },
   {
-    category: 'Infrastructure',
-    items: ['Linux', 'Docker', 'AWS (EC2, S3, Lambda, IAM)'],
+    category: 'Backend',
+    items: ['FastAPI', 'REST', 'PostgreSQL', 'SQLite', 'ChromaDB'],
   },
-  { category: 'DevOps', items: ['Git', 'GitHub Actions', 'GitLab CI'] },
+  {
+    category: 'Cloud & DevOps',
+    items: [
+      'Git',
+      'GitHub Actions',
+      'GitLab CI',
+      'Linux',
+      'Docker',
+      'AWS (EC2, S3, Lambda, IAM)',
+    ],
+  },
   { category: 'Monitoring', items: ['Grafana', 'Prometheus'] },
 ]
 
 export const experience: ExperienceEntry[] = [
   {
     role: 'Software Engineer',
-    company: 'Leonardo S.p.A. — Helicopters Division',
+    company: 'Leonardo S.p.A., Helicopters Division',
     location: 'Milan, Italy',
-    period: 'Dec 2024 — Present',
+    period: 'Dec 2024 to Present',
     highlights: [
       'Reduced manual review time by 95% by building a vision-LLM pipeline to detect semantic content differences, iteratively refining prompts and evaluating model accuracy across curated test sets to maximize detection reliability.',
       "Reduced integration time by 80% by designing and deploying the division's first CI/CD pipeline (GitLab CI), automating builds, static analysis, and testing.",
@@ -101,7 +113,7 @@ export const experience: ExperienceEntry[] = [
       'Built a full-stack dashboard (React, Python) that tracked GitLab issue progress via daily snapshots and forecasting models, improving delivery predictability.',
       'Led integration of contributions from 10+ engineers into production releases while developing and verifying embedded software under DO-178C DAL A, producing traceable artifacts for avionics certification.',
     ],
-    tech: ['Python', 'GitLab CI', 'Vision LLM', 'Agentic RAG', 'React', 'DO-178C'],
+    tech: ['Python', 'C', 'GitLab CI', 'Vision LLM', 'Agentic RAG', 'DO-178C'],
   },
 ]
 
@@ -159,7 +171,7 @@ export const background: BackgroundEntry[] = [
     kind: 'education',
   },
   {
-    title: 'Erasmus — Robotics & Automation Engineering',
+    title: 'Erasmus, Robotics & Automation Engineering',
     institution: 'Universitat Politècnica de Catalunya, Barcelona',
     year: '2024',
     kind: 'education',

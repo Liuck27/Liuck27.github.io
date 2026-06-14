@@ -41,7 +41,7 @@ export function About() {
                   Focus
                 </dt>
                 <dd className="mt-1 text-[var(--color-accent)]">
-                  AI/ML · Avionics · Quant
+                  AI/ML · Avionics · Backend
                 </dd>
               </div>
             </dl>

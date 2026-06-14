@@ -34,11 +34,11 @@ export function Hero() {
           </span>
         </div>
 
-        <p className="mb-4 font-mono text-sm uppercase tracking-[0.3em] text-[var(--color-muted)]">
+        <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight text-[var(--color-text)] sm:text-7xl lg:text-8xl">
           {profile.name}
-        </p>
+        </h1>
 
-        <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[var(--color-text)] sm:text-6xl lg:text-7xl">
+        <p className="mt-5 max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-[var(--color-text)] sm:text-3xl">
           {headlineLead}
           {headlineTail !== '' || profile.tagline.includes('pressure') ? (
             <>
@@ -46,11 +46,11 @@ export function Hero() {
               {headlineTail}
             </>
           ) : null}
-        </h1>
+        </p>
 
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
           {profile.role}. I work on AI/ML pipelines, CI/CD infrastructure, and
-          safety-critical avionics software — and bring that same rigor to
+          safety-critical avionics software, and bring that same rigor to
           everything I build.
         </p>
 
@@ -68,7 +68,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 border border-[var(--color-border)] px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-text)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
           >
             <DownloadIcon className="h-4 w-4" />
-            Résumé
+            CV
           </a>
           <a
             href={profile.github}
