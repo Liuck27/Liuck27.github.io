@@ -12,12 +12,7 @@ export function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionHeading
-          index={String(projects.length).padStart(2, '0')}
-          total={String(projects.length).padStart(2, '0')}
-          title="Selected Work"
-          kicker="// Projects"
-        />
+        <SectionHeading title="Projects" />
       </Reveal>
 
       {featured && (
@@ -81,9 +76,6 @@ export function Projects() {
             <div className="relative min-h-[16rem] border-t border-[var(--color-border)] bg-[var(--color-base)] lg:border-l lg:border-t-0">
               <div aria-hidden="true" className="grid-bg absolute inset-0" />
               <NeuralCanvas className="absolute inset-0" />
-              <span className="absolute bottom-4 right-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                neural_net.viz
-              </span>
             </div>
           </article>
         </Reveal>
@@ -98,10 +90,7 @@ export function Projects() {
               rel="noreferrer"
               className="glass-panel glow-hover group flex h-full flex-col p-6"
             >
-              <div className="mb-4 flex items-start justify-between gap-3">
-                <span className="font-mono text-xs text-[var(--color-accent)]">
-                  {String(index + 2).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-                </span>
+              <div className="mb-4 flex items-start justify-end gap-3">
                 <ArrowUpRightIcon className="h-5 w-5 text-[var(--color-muted)] transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-accent)]" />
               </div>
 

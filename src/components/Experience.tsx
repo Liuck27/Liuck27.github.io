@@ -7,11 +7,7 @@ export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-6 py-20">
       <Reveal>
-        <SectionHeading
-          index="03"
-          title="Where I've Worked"
-          kicker="// Experience"
-        />
+        <SectionHeading title="Where I've Worked" />
       </Reveal>
 
       <div className="space-y-6">

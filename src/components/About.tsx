@@ -7,7 +7,7 @@ export function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-20">
       <Reveal>
-        <SectionHeading index="01" title="About" kicker="// Profile" />
+        <SectionHeading title="About" />
       </Reveal>
 
       <div className="grid gap-10 lg:grid-cols-12">

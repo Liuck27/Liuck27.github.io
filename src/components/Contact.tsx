@@ -24,7 +24,7 @@ export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-20">
       <Reveal>
-        <SectionHeading index="05" title="Initialize Connection" kicker="// Contact" />
+        <SectionHeading title="Initialize Connection" />
       </Reveal>
 
       <Reveal>

@@ -7,8 +7,8 @@
     dominant-baseline="central"
     text-anchor="middle"
     font-family="ui-monospace, monospace"
-    font-size="14"
+    font-size="18"
     font-weight="700"
     fill="#00e38f"
-  >LS<tspan fill="#f1f3f5">_</tspan></text>
+  >LS</text>
 </svg>

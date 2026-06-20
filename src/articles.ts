@@ -142,7 +142,7 @@ export const articles: Article[] = [
       { type: 'heading', text: 'Evaluation and results' },
       {
         type: 'paragraph',
-        text: 'The evaluation harness never calls a model: it reads prediction CSVs already produced by the pipeline (each with a usage sidecar of call count, tokens, and runtime), joins them against labeled ground truth, and reports per-field accuracy plus a confusion table for `claim_status`. Every change in this project was judged against a full 20-row re-run, never a 2 to 3 row smoke test.',
+        text: 'The evaluation harness never calls a model: it reads prediction CSVs already produced by the pipeline (each with a usage sidecar of call count, tokens, and runtime), joins them against labeled ground truth, and reports per-field accuracy plus a confusion table for `claim_status`. Every change in this project was judged against a full 20-row re-run.',
       },
       {
         type: 'table',

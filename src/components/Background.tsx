@@ -21,11 +21,7 @@ export function Background() {
     >
       <div className="mx-auto max-w-6xl px-6 py-20">
         <Reveal>
-          <SectionHeading
-            index="04"
-            title="Background"
-            kicker="// Credentials"
-          />
+          <SectionHeading title="Background" />
         </Reveal>
 
         <Reveal>
