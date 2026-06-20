@@ -3,6 +3,7 @@ import { Reveal } from './Reveal.tsx'
 import { SectionHeading } from './SectionHeading.tsx'
 import { NeuralCanvas } from './NeuralCanvas.tsx'
 import { ArrowUpRightIcon, GitHubIcon } from './icons.tsx'
+import { articleHash } from '../router.ts'
 
 const [featured, ...rest] = projects
 
@@ -55,16 +56,27 @@ export function Projects() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={featured.github}
-                target="_blank"
-                rel="noreferrer"
-                className="group mt-8 inline-flex w-fit items-center gap-2 bg-[var(--color-accent)] px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-base)] transition-all hover:bg-[var(--color-accent-soft)]"
-              >
-                <GitHubIcon className="h-4 w-4" />
-                View Source
-                <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {featured.articleSlug && (
+                  <a
+                    href={articleHash(featured.articleSlug)}
+                    className="group inline-flex w-fit items-center gap-2 bg-[var(--color-accent)] px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-base)] transition-all hover:bg-[var(--color-accent-soft)]"
+                  >
+                    Read the Article
+                    <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
+                <a
+                  href={featured.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex w-fit items-center gap-2 border border-[var(--color-accent)]/60 px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-accent)] transition-all hover:bg-[var(--color-accent)] hover:text-[var(--color-base)]"
+                >
+                  <GitHubIcon className="h-4 w-4" />
+                  View Source
+                  <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </div>
             </div>
             <div className="relative min-h-[16rem] border-t border-[var(--color-border)] bg-[var(--color-base)] lg:border-l lg:border-t-0">
               <div aria-hidden="true" className="grid-bg absolute inset-0" />

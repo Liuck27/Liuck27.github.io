@@ -5,20 +5,23 @@ import { About } from './components/About.tsx'
 import { Skills } from './components/Skills.tsx'
 import { Experience } from './components/Experience.tsx'
 import { ProjectsPage } from './components/ProjectsPage.tsx'
+import { ArticlePage } from './components/ArticlePage.tsx'
 import { Background } from './components/Background.tsx'
 import { Contact } from './components/Contact.tsx'
 import { Footer } from './components/Footer.tsx'
-import { useHash, isProjectsRoute } from './router.ts'
+import { useHash, isProjectsRoute, isArticleRoute, getArticleSlug } from './router.ts'
 
 function App() {
   const hash = useHash()
   const onProjects = isProjectsRoute(hash)
+  const onArticle = isArticleRoute(hash)
+  const articleSlug = getArticleSlug(hash)
 
-  // Sync scroll position with the route: jump to top on the Projects view,
-  // and resolve in-page anchors on the home view (including when arriving
-  // from the Projects view, where the target only exists after render).
+  // Sync scroll position with the route: jump to top on the Projects/Article
+  // views, and resolve in-page anchors on the home view (including when
+  // arriving from another view, where the target only exists after render).
   useEffect(() => {
-    if (onProjects) {
+    if (onProjects || onArticle) {
       window.scrollTo(0, 0)
       return
     }
@@ -28,12 +31,16 @@ function App() {
         document.getElementById(id)?.scrollIntoView()
       })
     }
-  }, [hash, onProjects])
+  }, [hash, onProjects, onArticle])
 
   return (
     <>
       <Nav onProjects={onProjects} />
-      {onProjects ? (
+      {onArticle && articleSlug ? (
+        <main>
+          <ArticlePage slug={articleSlug} />
+        </main>
+      ) : onProjects ? (
         <main>
           <ProjectsPage />
         </main>

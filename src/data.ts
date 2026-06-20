@@ -21,6 +21,8 @@ export interface Project {
   highlights: string[]
   tech: string[]
   github: string
+  /** Slug of a dedicated write-up in `articles.ts`, if one exists. */
+  articleSlug?: string
 }
 
 export interface BackgroundEntry {
@@ -118,6 +120,19 @@ export const experience: ExperienceEntry[] = [
 ]
 
 export const projects: Project[] = [
+  {
+    title: 'Multi-Modal Evidence Review',
+    description:
+      'Multimodal claim-verification pipeline for insurance-style damage claims, built solo in 24 hours for the HackerRank Orchestrate hackathon.',
+    highlights: [
+      'Designed an anti-anchoring "describe first, compare second" prompting strategy to stop the model from rubber-stamping the customer\'s own narrative — moved claim-status accuracy from 5/6 missed contradictions to 90% overall.',
+      'Replaced a self-reported prompt injection flag with a deterministic post-processing policy enforced in code, the single highest-leverage fix in the project (+5 points across both strategies).',
+      'Built a dual-backend client (Gemini + local LM Studio VLM) behind one interface after exhausting Gemini\'s free-tier quota mid-build, plus an offline evaluation harness comparing 3 strategies with full operational cost analysis.',
+    ],
+    tech: ['Python', 'Vision LLM', 'Pydantic', 'Prompt Engineering', 'LM Studio', 'Gemini API'],
+    github: 'https://github.com/Liuck27/hackerrank-orchestrate-june26',
+    articleSlug: 'multi-modal-evidence-review',
+  },
   {
     title: 'Event-Driven Quantitative Backtesting Framework',
     description:

@@ -22,8 +22,24 @@ export function useHash(): string {
 }
 
 export const PROJECTS_HASH = '#/projects'
+const ARTICLE_PREFIX = '#/articles/'
 
 /** Whether the given hash resolves to the standalone Projects view. */
 export function isProjectsRoute(hash: string): boolean {
   return hash === PROJECTS_HASH || hash.startsWith('#/projects')
+}
+
+/** Builds the hash route for a given article slug. */
+export function articleHash(slug: string): string {
+  return `${ARTICLE_PREFIX}${slug}`
+}
+
+/** Whether the given hash resolves to a standalone article view. */
+export function isArticleRoute(hash: string): boolean {
+  return hash.startsWith(ARTICLE_PREFIX)
+}
+
+/** Extracts the article slug from an article-route hash, if present. */
+export function getArticleSlug(hash: string): string | null {
+  return isArticleRoute(hash) ? hash.slice(ARTICLE_PREFIX.length) : null
 }
